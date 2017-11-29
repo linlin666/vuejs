@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <router-link to="/gaode">高德地图</router-link>
+    <router-link to="/gaode">高德地图</router-link><br>
+    <router-link to="/baiduMap">百度地图</router-link>
   </div>
 </template>
 
