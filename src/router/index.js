@@ -7,6 +7,7 @@ import erweima from '../components/erweima.vue'
 import emit from '../components/aboutEmit.vue'
 import scrollTop from '../components/setScrollTop.vue'
 import display from '../components/display.vue'
+import betterScroll from '../components/betterScroll.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,11 @@ export default new Router({
       path: '/display',
       name: 'display',
       component: display
+    },
+    {
+      path: '/betterScroll',
+      name: 'betterScroll',
+      component: betterScroll
     }
   ]
 })

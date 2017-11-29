@@ -9,6 +9,8 @@
     <router-link to="/scrollTop">测试scrollTop用法</router-link>
     <br/>
     <router-link to="/display">块状排列</router-link>
+    <br/>
+    <router-link to="/betterScroll">better-scroll</router-link>
   </div>
 </template>
 
