@@ -11,6 +11,8 @@
     <router-link to="/display">块状排列</router-link>
     <br/>
     <router-link to="/betterScroll">better-scroll</router-link>
+    <br/>
+    <router-link to="/diyImg">花纹</router-link>
   </div>
 </template>
 
