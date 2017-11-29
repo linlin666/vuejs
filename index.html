@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>demos</title>
-    <script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>demos</title>
+  <!--高德地图-->
+  <script src="http://webapi.amap.com/maps?v=1.3&amp;key=1ba6c55a1527e7472aac037e13a7077e"></script>
+  <script>
+    fnResize()
+    window.onresize = function () {
       fnResize()
-      window.onresize = function () {
-        fnResize()
+    }
+    function fnResize() {
+      var deviceWidth = document.documentElement.clientWidth || window.innerWidth
+      if (deviceWidth >= 750) {
+        deviceWidth = 750
       }
-      function fnResize () {
-        var deviceWidth = document.documentElement.clientWidth || window.innerWidth
-        if (deviceWidth >= 750) {
-          deviceWidth = 750
-        }
-        if (deviceWidth <= 320) {
-          deviceWidth = 320
-        }
-        document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
+      if (deviceWidth <= 320) {
+        deviceWidth = 320
       }
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+      document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
+    }
+  </script>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>
