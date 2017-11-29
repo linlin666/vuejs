@@ -5,6 +5,8 @@
     <router-link to="/erweima">二维码</router-link>
     <br/>
     <router-link to="/emit">$emit用法</router-link>
+    <br/>
+    <router-link to="/scrollTop">测试scrollTop用法</router-link>
   </div>
 </template>
 

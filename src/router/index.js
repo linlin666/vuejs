@@ -5,6 +5,7 @@ import gaode from '../components/gaode.vue'
 import baiduMap from '../components/baiduMap.vue'
 import erweima from '../components/erweima.vue'
 import emit from '../components/aboutEmit.vue'
+import scrollTop from '../components/setScrollTop.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/emit',
       name: 'emit',
       component: emit
+    },
+    {
+      path: '/scrollTop',
+      name: 'scrollTop',
+      component: scrollTop
     }
   ]
 })
