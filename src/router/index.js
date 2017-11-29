@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import gaode from '../components/gaode.vue'
 import baiduMap from '../components/baiduMap.vue'
+import erweima from '../components/erweima.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/baiduMap',
       name: 'baiduMap',
       component: baiduMap
+    },
+    {
+      path: '/erweima',
+      name: 'erweima',
+      component: erweima
     }
   ]
 })
