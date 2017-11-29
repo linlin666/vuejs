@@ -9,6 +9,7 @@ import scrollTop from '../components/setScrollTop.vue'
 import display from '../components/display.vue'
 import betterScroll from '../components/betterScroll.vue'
 import diyImg from '../components/diyImg.vue'
+import slidX from '../components/slidX.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +58,11 @@ export default new Router({
       path: '/diyImg',
       name: 'diyImg',
       component: diyImg
+    },
+    {
+      path: '/slidX',
+      name: 'slidX',
+      component: slidX
     }
   ]
 })

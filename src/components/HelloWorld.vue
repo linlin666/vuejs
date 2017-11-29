@@ -13,6 +13,8 @@
     <router-link to="/betterScroll">better-scroll</router-link>
     <br/>
     <router-link to="/diyImg">花纹</router-link>
+    <br/>
+    <router-link to="/slidX">左右滑动</router-link>
   </div>
 </template>
 
