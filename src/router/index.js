@@ -6,6 +6,7 @@ import baiduMap from '../components/baiduMap.vue'
 import erweima from '../components/erweima.vue'
 import emit from '../components/aboutEmit.vue'
 import scrollTop from '../components/setScrollTop.vue'
+import display from '../components/display.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +40,11 @@ export default new Router({
       path: '/scrollTop',
       name: 'scrollTop',
       component: scrollTop
+    },
+    {
+      path: '/display',
+      name: 'display',
+      component: display
     }
   ]
 })
