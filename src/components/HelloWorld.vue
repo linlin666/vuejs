@@ -15,6 +15,12 @@
     <router-link to="/diyImg">花纹</router-link>
     <br/>
     <router-link to="/slidX">左右滑动</router-link>
+    <br/>
+    <router-link to="/datePicker">日期选择器</router-link>
+    <br/>
+    <router-link to="/emoji">emoji表情</router-link>
+    <br/>
+    <router-link to="/vueEditor">vue-kindeditor</router-link>
   </div>
 </template>
 

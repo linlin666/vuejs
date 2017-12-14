@@ -10,6 +10,10 @@ import display from '../components/display.vue'
 import betterScroll from '../components/betterScroll.vue'
 import diyImg from '../components/diyImg.vue'
 import slidX from '../components/slidX.vue'
+import datePicker from '../components/datePicker.vue'
+import emoji from '../components/emoji.vue'
+import vueEditor from '../components/vue-vue-kindeditor.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -63,6 +67,21 @@ export default new Router({
       path: '/slidX',
       name: 'slidX',
       component: slidX
+    },
+    {
+      path: '/datePicker',
+      name: 'datePicker',
+      component: datePicker
+    },
+    {
+      path: '/emoji',
+      name: 'emoji',
+      component: emoji
+    },
+    {
+      path: '/vueEditor',
+      name: 'vueEditor',
+      component: vueEditor
     }
   ]
 })
