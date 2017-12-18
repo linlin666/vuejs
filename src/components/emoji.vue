@@ -1,102 +1,125 @@
 <template>
-  <div class="myEmoji">
-    <h1>Vue-Emoji</h1>
-    <div contenteditable="" ref='edit' focus class="contentBox"></div>
-    <div contenteditable="" ref='edit2' focus class="contentBox2"></div>
-    <button ref='btn' @click='showEmoji = !showEmoji'>emoji</button>
-    <vue-emoji
-      v-show='showEmoji'
-      ref='emoji'
-      :unicode='true'
-      @select='handleSelect'
-      @hide='handleHide'
-    ></vue-emoji>
-    <button @click='saveText'>发表话题</button>
+  <div class="emoji">
+    <ul class="emoji-controller">
+      <li
+        v-for="(pannel,index) in pannels"
+        @click="changeActive(index)"
+        :class="{'active': index === activeIndex}">{{ pannel }}
+      </li>
+    </ul>
+    <ul class="emoji-container">
+      <li
+        v-for="(emojiGroup, index) in emojis"
+        style="padding: 0"
+        :key="index"
+        v-if="index === activeIndex">
+        <a
+          href="javascript:;"
+          v-for="(emoji, index) in emojiGroup"
+          :key="index" @click="selectItem(emoji)">
+           <span
+             class="emoji-item"
+             :title="emoji"
+             :class="'sprite-' + getPureName(emoji)"></span>
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
-
 <script>
-  import api from '@/api/api'
-  import vueEmoji from 'rui-vue-emoji'
-  import 'rui-vue-emoji/dist/vue-emoji.css'
+  import data from '../data/emoji-data.js'
+
   export default {
-    components: {
-      vueEmoji
-    },
+    name: 'emoji',
     data () {
       return {
-        showEmoji: false
+        emojiData: data,
+        pannels: ['表情', '自然', '物品', '地点', '符号'],
+        activeIndex: 0
       }
     },
     methods: {
-      hide () {
-        this.showEmoji = false
+      changeActive (index) {
+        this.activeIndex = index
       },
-      handleHide (e) {
-        this.hide()
+      getPureName (name) {
+        return name.replace(/:/g, '')
       },
-      handleSelect (img) {
-        console.log(img)
-        if (img.nodeType === 3) {
-          var $img = new Image()
-          $img.src = this.$refs.emoji.getImgPathByUnicode(img.textContent)
-          let $app1 = this.$refs.edit
-          $app1.appendChild($img)
-        } else {
-//          var unicode = this.$refs.emoji.getUnicodeByImgPath(img.src)
-//          var node = document.createTextNode(unicode)
-//          let $app3 = this.$refs.edit2
-//          $app3.appendChild(node)
-        }
-        this.hide()
-      },
-      saveText () {
-        console.log(this.$refs.edit.innerHTML)
-        let img = document.querySelectorAll('.contentBox img')
-        let arr = []
-        img.forEach(item => {
-          console.log(item)
-          let unicode = this.$refs.emoji.getUnicodeByImgPath(item.src)
-          arr.push(unicode)
-        })
-        /* api.postText({
-         title: '来吧，测试吧',
-         content: ''
-         }).then(res => {
-         console.log('成功了')
-         }) */
+      selectItem (emoji) {
+        this.$emit('select', emoji)
       }
     },
-    mounted () {
-      this.$refs.emoji.appendTo({
-        area: this.$refs.edit,
-        btn: this.$refs.btn,
-        position: 'left right'
-      })
-      api.testApi().then(res => {
-//        console.log(res.data)
-      })
+    computed: {
+      emojis () {
+        return this.pannels.map(item => {
+          return Object.keys(this.emojiData[item])
+        })
+      }
     }
   }
 </script>
 
-<style lang="scss">
-  /*@import 'rui-vue-images/dist/vue-images.css';*/
-  .myEmoji {
-    height: 600px;
-    margin: 100px 0;
-    border: 1px solid #ccc;
-  }
+<style lang='scss' scoped>
+  @import '../assets/scss/emoji-sprite.scss';
 
-  .contentBox, .contentBox2 {
-    width: 500px;
-    height: 200px;
-    margin: auto;
-    border: 1px solid #000000;
-    text-align: left;
-    img {
-      width: 20px;
-      height: 20px;
+  .emoji {
+    width: 380px;
+    height: 186px;
+    bottom: 30px;
+    background: #fff;
+    z-index: 10;
+    padding: 10px;
+    margin-right: 10px;
+    .emoji-controller {
+      height: 36px;
+      overflow: hidden;
+      margin-bottom: 0;
+      li {
+        float: left;
+        width: 76px;
+        font-size: 12px;
+        line-height: 36px;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        &.active::after {
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: #0689dd;
+          left: 0;
+          bottom: 4px;
+          position: absolute;
+        }
+      }
+    }
+    .emoji-container {
+      height: 140px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      li {
+        font-size: 0;
+        padding: 5px;
+        a {
+          float: left;
+          overflow: hidden;
+          height: 35px;
+          transition: all ease-out .2s;
+          border-radius: 4px;
+          &:hover {
+            background-color: #d8d8d8;
+            border-color: #d8d8d8;
+          }
+          span {
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            border: 1px solid transparent;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 </style>

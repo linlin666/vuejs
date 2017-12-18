@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <router-link to="/gaode">高德地图</router-link><br>
-    <router-link to="/baiduMap">百度地图</router-link><br/>
+    <router-link to="/gaode">高德地图</router-link>
+    <br>
+    <router-link to="/baiduMap">百度地图</router-link>
+    <br/>
     <router-link to="/erweima">二维码</router-link>
     <br/>
     <router-link to="/emit">$emit用法</router-link>
@@ -18,7 +20,9 @@
     <br/>
     <router-link to="/datePicker">日期选择器</router-link>
     <br/>
-    <router-link to="/emoji">emoji表情</router-link>
+    <router-link to="/emoji">emoji表情(弃用)</router-link>
+    <br/>
+    <router-link to="/vueEmoji">vueEmoji表情</router-link>
     <br/>
     <router-link to="/vueEditor">vue-kindeditor</router-link>
   </div>
