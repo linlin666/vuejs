@@ -25,6 +25,8 @@
     <router-link to="/vueEmoji">vueEmoji表情</router-link>
     <br/>
     <router-link to="/vueEditor">vue-kindeditor</router-link>
+    <br/>
+    <router-link to="/vueditor">vueditor</router-link>
   </div>
 </template>
 

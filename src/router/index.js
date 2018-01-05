@@ -14,6 +14,7 @@ import datePicker from '../components/datePicker.vue'
 import emoji from '../components/oldEmoji.vue'
 import vueEmoji from '../components/vueEmoji.vue'
 import vueEditor from '../components/vue-vue-kindeditor.vue'
+import vueditor from '../components/vueEditor.vue'
 
 Vue.use(Router)
 
@@ -88,6 +89,11 @@ export default new Router({
       path: '/vueEditor',
       name: 'vueEditor',
       component: vueEditor
+    },
+    {
+      path: '/vueditor',
+      name: 'vueditor',
+      component: vueditor
     }
   ]
 })

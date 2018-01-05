@@ -7,19 +7,18 @@ import VueKindEditor from 'vue-kindeditor'
 import 'kindeditor/kindeditor-all-min.js'
 import 'kindeditor/themes/default/default.css'
 import Datepicker from 'hsy-vue-datepicker'
-// import './assets/css/iconfont.css'
-import { emoji } from './api/emoji.js'
 
-Vue.prototype.emoji = emoji
+// import './assets/css/iconfont.css'
+// import {emoji} from './api/emoji.js'
+// Vue.prototype.emoji = emoji
 
 Vue.config.productionTip = false
 Vue.use(VueKindEditor)
 Vue.use(Datepicker)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })
